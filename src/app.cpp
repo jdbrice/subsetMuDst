@@ -31,9 +31,17 @@ int main( int argc, char* argv[] ) {
 
 	cout << "const: " << Constants::nChannels << endl;
   if ( argc >= 2 ){
-    xmlConfig config( argv[ 1 ] );
-    config.report();
+    
+  } else {
+    cout << "Please provide a config file." << endl;
+    return 0;
   }
+
+  xmlConfig config( argv[ 1 ] );
+  config.report();
+
+  
+
 
 
 	return 0;

@@ -1,31 +1,20 @@
 <config>
 
-	<array>
-		<dates>
-			<v>                                  12-12-02</v>
-			<v>13-12-01</v>
-			<v>13-12-03</v>
-			<v>13-12-04</v>
-		</dates>
-		
-		<tries>
-			<another>
-				<deep>
-					<v>1</v>
-					<v>2</v>
-					<v>3</v>
-				</deep>
-			</another>
-		</tries>
-		
-		<more></more>
-		<four>exists</four>
-	</array>
+	<input>
+		<dataDir>/star/institutions/rice/jdb/fastOffline/</dataDir>
+		<maxFiles>1</maxFiles>
+	</input>
 
-	<dan>
-	adada
-	</dan>
+	<keepBranches>
+		<v>MuEvent.*</v>
+		<v>PrimaryTracks.*</v>
+	</keepBranches>
 
-	<test>wrwerw</test>
+	<output>
+		<r>
+		<root>pDst.root</root>
+		</r>
+	</output>
+
 
 </config>
