@@ -7,13 +7,10 @@
 
 	<keepBranches>
 		<v>MuEvent.*</v>
-		<v>PrimaryTracks.*</v>
 	</keepBranches>
 
 	<output>
-		<r>
 		<root>pDst.root</root>
-		</r>
 	</output>
 
 

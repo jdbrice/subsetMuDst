@@ -2,7 +2,7 @@
 #include <iostream>
 #include "allroot.h"
 #include "constants.h"
-
+#include "chainLoader.h"
 #include "xmlConfig.h"
 
 /* 
@@ -29,7 +29,9 @@ int main(int argc, char* argv[]) {
 
 int main( int argc, char* argv[] ) {
 
-	cout << "const: " << Constants::nChannels << endl;
+
+  gErrorIgnoreLevel=kBreak;
+
   if ( argc >= 2 ){
     
   } else {
@@ -40,9 +42,24 @@ int main( int argc, char* argv[] ) {
   xmlConfig config( argv[ 1 ] );
   config.report();
 
-  
+  TChain * chain = new TChain( "MuDst" );
+  chainLoader::load( chain, (char*)config.getString("input.dataDir", "./").c_str(), config.getInt( "input.maxFiles", 1000 ) );
+
+  chain->SetBranchStatus( "*", 0 );
+
+  vector<string> branches = config.getStringVector( "keepBranches" );
+  for ( uint i = 0; i < branches.size(); i++ ){
+    chain->SetBranchStatus( branches[ i ].c_str(), 1 );
+    cout << "[Keeping Branch]    " << branches[ i ] << endl;
+  }
 
 
+  TFile *newFile = new TFile( config.getString( "output.root", "out.root" ).c_str() ,"recreate");
+  TTree *newTree = chain->CloneTree();
+
+  newFile->Write();
+  delete newFile;
+  delete chain;
 
 	return 0;
 }
