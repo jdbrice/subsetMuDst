@@ -1,6 +1,7 @@
 <config>
 
 	<input>
+		<treeName>MuDst</treeName>
 		<dataDir>/star/institutions/rice/jdb/fastOffline/</dataDir>
 		<maxFiles>1</maxFiles>
 	</input>

@@ -42,7 +42,7 @@ int main( int argc, char* argv[] ) {
   xmlConfig config( argv[ 1 ] );
   config.report();
 
-  TChain * chain = new TChain( "MuDst" );
+  TChain * chain = new TChain( config.getString( "treeName", "MuDst" ).c_str() );
   chainLoader::load( chain, (char*)config.getString("input.dataDir", "./").c_str(), config.getInt( "input.maxFiles", 1000 ) );
 
   chain->SetBranchStatus( "*", 0 );

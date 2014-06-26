@@ -1,6 +1,6 @@
 
 # project name and executable name
-project = subsetMuDst
+project = treeSubset
 # source suffix
 source = .cpp 
 # object files to make
