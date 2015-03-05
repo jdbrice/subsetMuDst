@@ -2,7 +2,7 @@
 
 	<input>
 		<treeName>MuDst</treeName>
-		<dataDir>/star/institutions/rice/jdb/fastOffline/</dataDir>
+		<dataDir>/Users/danielbrandenburg/bnl/local/data/MuDst/</dataDir>
 		<maxFiles>1</maxFiles>
 	</input>
 
